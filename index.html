@@ -1,39 +1,208 @@
 
-<h1>DATOS PERSONALES</h1>
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#172554">
+    <meta name="description" content="Una guía clara e interactiva para aprender cómo funciona la arquitectura de microservicios.">
+    <title>Microservicios | Arquitectura desacoplada</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/app.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Saltar al contenido</a>
+    <header class="site-header">
+        <nav class="nav-shell" aria-label="Navegación principal">
+            <a class="brand" href="#inicio" aria-label="Microservicios, ir al inicio">
+                <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+                <span>arquitectura<span class="brand-light">.lab</span></span>
+            </a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menú">
+                <span></span><span></span>
+            </button>
+            <div class="nav-links" id="main-nav">
+                <a href="#inicio">Inicio</a>
+                <a href="#conceptos">Conceptos</a>
+                <a href="#funcionamiento">Funcionamiento</a>
+                <a href="#balance">Ventajas y desventajas</a>
+                <a href="#video">Video</a>
+                <a class="nav-quiz" href="#cuestionario">Cuestionario <span aria-hidden="true">↗</span></a>
+            </div>
+        </nav>
+    </header>
 
-<table>
-     <tr>
-        <td>
-            <img src="img/img1.jpeg" width="150">
-        </td>
+    <main id="main">
+        <section class="hero" id="inicio">
+            <div class="hero-grid page-width">
+                <div class="hero-copy">
+                    <p class="eyebrow"><span class="eyebrow-line"></span> FUNDAMENTOS DE ARQUITECTURA</p>
+                    <h1>Una aplicación.<br><span>Muchos servicios.</span></h1>
+                    <p class="hero-description">Descubre cómo los microservicios dividen sistemas complejos en piezas pequeñas, autónomas y coordinadas.</p>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="#conceptos">Comenzar a aprender <span aria-hidden="true">↓</span></a>
+                        <a class="text-link" href="#funcionamiento">Explorar el diagrama <span aria-hidden="true">↗</span></a>
+                    </div>
+                    <div class="hero-meta"><span class="meta-dot"></span> Una guía visual, paso a paso <span class="meta-separator">·</span> 8 min de lectura</div>
+                </div>
+                <div class="hero-visual" aria-label="Ilustración de servicios conectados que forman una aplicación" role="img">
+                    <div class="visual-topline"><span>ECOSISTEMA DE SERVICIOS</span><span class="live-indicator">● EN LÍNEA</span></div>
+                    <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+                    <svg class="connection-lines" viewBox="0 0 520 390" aria-hidden="true">
+                        <path d="M260 194 117 93M260 194 398 92M260 194 112 292M260 194 402 292M260 194 260 57M260 194 260 342" />
+                        <circle cx="117" cy="93" r="3"/><circle cx="398" cy="92" r="3"/><circle cx="112" cy="292" r="3"/><circle cx="402" cy="292" r="3"/><circle cx="260" cy="57" r="3"/><circle cx="260" cy="342" r="3"/>
+                    </svg>
+                    <div class="service-node node-core"><span class="node-glyph">⌘</span><strong>Aplicación</strong><small>coordinada</small></div>
+                    <div class="service-node node-users"><span class="node-glyph glyph-cyan">◎</span><strong>Usuarios</strong><small>identidad</small></div>
+                    <div class="service-node node-catalog"><span class="node-glyph glyph-yellow">▦</span><strong>Catálogo</strong><small>productos</small></div>
+                    <div class="service-node node-orders"><span class="node-glyph glyph-coral">⇄</span><strong>Pedidos</strong><small>procesamiento</small></div>
+                    <div class="service-node node-payments"><span class="node-glyph glyph-green">◇</span><strong>Pagos</strong><small>transacciones</small></div>
+                    <div class="service-node node-api"><span class="node-glyph glyph-lilac">⌁</span><strong>API</strong><small>comunicación</small></div>
+                    <div class="service-node node-data"><span class="node-glyph glyph-blue">▤</span><strong>Datos</strong><small>almacenamiento</small></div>
+                    <div class="visual-caption"><span>01</span> Cada servicio resuelve una responsabilidad</div>
+                </div>
+            </div>
+            <div class="hero-bottom page-width"><span>APRENDE LOS FUNDAMENTOS</span><span class="scroll-cue">DESLIZA PARA EXPLORAR <b aria-hidden="true">↓</b></span></div>
+        </section>
 
-        <td>
-        <table>
-            <tr>
-                <td><strong>APELLIDO</strong></td>
-                <td>Altamirano</td>
-            </tr>
-            <tr>
-                <td><strong>NOMBRE</strong></td>
-                <td>Neyder</td>
-            </tr>
-            <tr>
-                <td><strong>GMAIL</strong></td>
-                <td>neyderaltamirano2453@utc.edu.ec</td>
-            </tr>
-            <tr>
-                <td><strong>DIRECCIÓN</strong></td>
-                <td>Av. Marco Aurelio Subi</td>
-            </tr>
-            <tr>
-                <td><strong>ACERCA DE MÍ</strong></td>
-                <td>
-                    Tengo 19 años. Me gusta la programación y en mi
-                    tiempo libre me dedico a crear pequeñas páginas y sitios web.
-                    Mi objetivo es graduarme y poder trabajar fuera del pais. 
-                </td>
-            </tr>
-        </table>
-        </td>
-    </tr>
-</table>
+        <section class="section intro-section" id="conceptos">
+            <div class="page-width">
+                <div class="section-heading split-heading">
+                    <div><p class="eyebrow eyebrow-blue">01 / LOS CONCEPTOS</p><h2>Primero, las piezas<br>del mapa.</h2></div>
+                    <p class="heading-note">Antes de hablar de servicios, aclaremos qué es una arquitectura y qué significa que sus componentes estén desacoplados.</p>
+                </div>
+                <div class="concept-grid">
+                    <article class="concept-card concept-featured">
+                        <span class="concept-index">A / 01</span><span class="concept-icon icon-blue" aria-hidden="true">⌂</span>
+                        <h3>Arquitectura de software</h3>
+                        <p>Es el plano que define cómo se organizan las partes de un sistema, qué responsabilidades tiene cada una y cómo colaboran.</p>
+                        <div class="concept-example"><span class="example-label">PIÉNSALO COMO</span> El plano de una ciudad: barrios, calles y servicios con un propósito.</div>
+                    </article>
+                    <article class="concept-card">
+                        <span class="concept-index">A / 02</span><span class="concept-icon icon-teal" aria-hidden="true">⤳</span>
+                        <h3>Desacoplar</h3>
+                        <p>Es reducir la dependencia directa entre componentes. Cada parte puede cambiar sin obligar a modificar todas las demás.</p>
+                        <div class="concept-example"><span class="example-label">EN LA PRÁCTICA</span> Cambiar el catálogo sin reconstruir el servicio de usuarios.</div>
+                    </article>
+                    <article class="concept-card">
+                        <span class="concept-index">A / 03</span><span class="concept-icon icon-orange" aria-hidden="true">▧</span>
+                        <h3>Microservicios</h3>
+                        <p>Es un estilo de arquitectura que organiza una aplicación como un conjunto de servicios pequeños, especializados y desplegables por separado.</p>
+                        <div class="concept-example"><span class="example-label">SU PROPÓSITO</span> Evolucionar cada capacidad con autonomía y coordinación.</div>
+                    </article>
+                </div>
+                <div class="analogy-strip"><span class="analogy-symbol" aria-hidden="true">✳</span><p><strong>Una analogía cotidiana:</strong> en un restaurante, cocina, caja y reparto tienen tareas distintas; coordinan el pedido, pero cada equipo se enfoca en su trabajo.</p></div>
+            </div>
+        </section>
+
+        <section class="section architecture-section" id="funcionamiento">
+            <div class="page-width">
+                <div class="section-heading split-heading">
+                    <div><p class="eyebrow eyebrow-blue">02 / CÓMO SE CONECTAN</p><h2>Autónomos por dentro.<br>Coordinados por fuera.</h2></div>
+                    <p class="heading-note">Los servicios se comunican mediante contratos claros: por ejemplo, APIs HTTP/REST para solicitudes o mensajería para procesos asíncronos.</p>
+                </div>
+                <div class="diagram-frame">
+                    <div class="diagram-toolbar"><div><span class="diagram-status"></span> VISTA DE LA APLICACIÓN</div><span>COMUNICACIÓN · API / MENSAJERÍA</span></div>
+                    <div class="architecture-diagram" role="img" aria-label="Diagrama de una aplicación web que se comunica con servicios independientes de usuarios, productos, pedidos y pagos, cada uno con su almacenamiento">
+                        <div class="client-box"><span class="client-icon">▣</span><strong>Aplicación web</strong><small>interfaz de usuario</small></div>
+                        <div class="diagram-bus"><span>API GATEWAY</span><small>punto de entrada</small></div>
+                        <div class="service-cluster">
+                            <article class="diagram-service user-service"><span class="service-number">SVC / 01</span><span class="diagram-icon">◎</span><strong>Usuarios</strong><small>cuentas y perfiles</small><div class="database"><span>▤</span> datos de usuario</div></article>
+                            <article class="diagram-service product-service"><span class="service-number">SVC / 02</span><span class="diagram-icon">▦</span><strong>Productos</strong><small>catálogo e inventario</small><div class="database"><span>▤</span> datos de producto</div></article>
+                            <article class="diagram-service order-service"><span class="service-number">SVC / 03</span><span class="diagram-icon">⇄</span><strong>Pedidos</strong><small>carrito y órdenes</small><div class="database"><span>▤</span> datos de pedido</div></article>
+                            <article class="diagram-service payment-service"><span class="service-number">SVC / 04</span><span class="diagram-icon">◇</span><strong>Pagos</strong><small>cobros y estado</small><div class="database"><span>▤</span> datos de pago</div></article>
+                        </div>
+                        <div class="diagram-connector connector-client" aria-hidden="true"><span>HTTPS</span></div>
+                        <div class="diagram-connector connector-services" aria-hidden="true"><span>APIs · eventos</span></div>
+                    </div>
+                    <div class="diagram-legend"><span><i class="legend-api"></i> Solicitud / respuesta</span><span><i class="legend-event"></i> Evento o mensaje</span><span class="legend-caption">Cada servicio puede tener su propio ciclo de vida.</span></div>
+                </div>
+                <p class="diagram-note"><strong>Sobre las bases de datos:</strong> una base independiente por servicio es una práctica habitual para mantener autonomía, pero no es una obligación universal. La decisión depende de las necesidades del sistema.</p>
+                <div class="traits-heading"><p class="eyebrow eyebrow-blue">LO QUE LOS DEFINE</p><h3>Seis ideas para reconocerlos</h3></div>
+                <div class="traits-grid">
+                    <article class="trait"><span>01</span><div><h4>Independencia</h4><p>Cada servicio concentra una capacidad y procura evitar dependencias internas rígidas.</p></div></article>
+                    <article class="trait"><span>02</span><div><h4>Despliegue propio</h4><p>Puede publicarse por separado si sus contratos siguen siendo compatibles.</p></div></article>
+                    <article class="trait"><span>03</span><div><h4>Escala individual</h4><p>Se asignan más recursos al servicio que realmente tiene mayor demanda.</p></div></article>
+                    <article class="trait"><span>04</span><div><h4>Comunicación explícita</h4><p>Colaboran mediante APIs o mensajes con formatos acordados.</p></div></article>
+                    <article class="trait"><span>05</span><div><h4>Flexibilidad tecnológica</h4><p>Un servicio puede usar la tecnología que mejor resuelva su tarea.</p></div></article>
+                    <article class="trait"><span>06</span><div><h4>Fallos contenidos</h4><p>Con aislamiento, límites y reintentos, un fallo puede afectar menos al conjunto.</p></div></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section balance-section" id="balance">
+            <div class="page-width">
+                <div class="section-heading split-heading">
+                    <div><p class="eyebrow eyebrow-blue">03 / DECISIONES CON CONTEXTO</p><h2>Más autonomía,<br>más coordinación.</h2></div>
+                    <p class="heading-note">Microservicios no significa automáticamente “mejor”. Su valor depende de las necesidades del producto y de la capacidad del equipo para operar sistemas distribuidos.</p>
+                </div>
+                <div class="balance-grid">
+                    <article class="balance-panel benefits-panel"><div class="panel-heading"><span class="panel-symbol">＋</span><div><p>CUÁNDO AYUDAN</p><h3>Ventajas</h3></div></div>
+                        <ul><li><span>01</span><div><strong>Escala donde hace falta</strong><p>Refuerza servicios específicos sin escalar toda la aplicación.</p></div></li><li><span>02</span><div><strong>Mantenimiento por partes</strong><p>Un componente pequeño puede ser más fácil de entender y evolucionar.</p></div></li><li><span>03</span><div><strong>Cambios independientes</strong><p>Permite desplegar un servicio sin desplegar todo, si hay compatibilidad.</p></div></li><li><span>04</span><div><strong>Equipos con autonomía</strong><p>Varios equipos pueden avanzar sobre responsabilidades distintas.</p></div></li><li><span>05</span><div><strong>Herramientas adecuadas</strong><p>Es posible elegir tecnologías diferentes según cada necesidad.</p></div></li></ul>
+                    </article>
+                    <article class="balance-panel tradeoffs-panel"><div class="panel-heading"><span class="panel-symbol">↗</span><div><p>LO QUE EXIGE</p><h3>Retos</h3></div></div>
+                        <ul><li><span>01</span><div><strong>Comunicación distribuida</strong><p>Más llamadas entre servicios pueden sumar latencia y fallos de red.</p></div></li><li><span>02</span><div><strong>Depuración más difícil</strong><p>Un error puede atravesar varios servicios antes de hacerse visible.</p></div></li><li><span>03</span><div><strong>Operación y monitoreo</strong><p>Se necesitan registros, métricas y trazas centralizadas.</p></div></li><li><span>04</span><div><strong>Datos y consistencia</strong><p>Coordinar cambios de datos entre servicios requiere diseño cuidadoso.</p></div></li><li><span>05</span><div><strong>Seguridad y resiliencia</strong><p>Cada comunicación necesita protección y estrategias ante fallos.</p></div></li></ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section comparison-section" id="comparacion">
+            <div class="page-width">
+                <div class="section-heading split-heading"><div><p class="eyebrow eyebrow-blue">04 / DOS FORMAS DE ORGANIZAR</p><h2>Monolito o microservicios:<br>depende del contexto.</h2></div><p class="heading-note">Un monolito reúne funcionalidades en una misma aplicación. Los microservicios distribuyen capacidades en procesos independientes.</p></div>
+                <div class="comparison-wrap"><table class="comparison-table"><thead><tr><th scope="col">ASPECTO</th><th scope="col"><span class="table-monolith">▰</span> Monolítica</th><th scope="col"><span class="table-micro">◈</span> Microservicios</th></tr></thead><tbody>
+                    <tr><th scope="row">Estructura</th><td>Funcionalidades dentro de una aplicación.</td><td>Servicios separados por capacidad de negocio.</td></tr>
+                    <tr><th scope="row">Despliegue</th><td>Normalmente se publica la aplicación completa.</td><td>Un servicio puede desplegarse por separado.</td></tr>
+                    <tr><th scope="row">Escalabilidad</th><td>Se escala la aplicación como conjunto.</td><td>Se escala cada servicio según su demanda.</td></tr>
+                    <tr><th scope="row">Mantenimiento</th><td>Puede ser directo al inicio; crecer puede aumentar el acoplamiento.</td><td>Facilita separar responsabilidades, con coordinación adicional.</td></tr>
+                    <tr><th scope="row">Complejidad operativa</th><td>Menos piezas distribuidas que administrar.</td><td>Requiere monitoreo y operación distribuida.</td></tr>
+                </tbody></table></div>
+                <div class="decision-note"><span aria-hidden="true">✳</span><p><strong>Una regla útil:</strong> empezar con un monolito bien organizado suele ser razonable para productos pequeños. Separar servicios tiene sentido cuando hay necesidades reales de escala, autonomía o despliegue.</p></div>
+            </div>
+        </section>
+
+        <section class="section example-section" id="ejemplo">
+            <div class="page-width example-layout">
+                <div class="example-intro"><p class="eyebrow eyebrow-blue">05 / UN CASO CERCANO</p><h2>Una compra.<br>Cuatro servicios.</h2><p>En una tienda virtual, cada parte participa en una responsabilidad diferente. Así podría viajar un pedido:</p><div class="example-tag"><span class="tag-dot"></span> EJEMPLO · TIENDA VIRTUAL</div></div>
+                <div class="purchase-flow">
+                    <article class="flow-step"><span class="step-index">01</span><span class="step-icon">◎</span><div><span class="step-service">USUARIOS</span><h3>Se identifica</h3><p>Valida la cuenta y recupera la información necesaria del comprador.</p></div><span class="step-arrow" aria-hidden="true">↓</span></article>
+                    <article class="flow-step"><span class="step-index">02</span><span class="step-icon">▦</span><div><span class="step-service">CATÁLOGO</span><h3>Se consulta</h3><p>Confirma el producto, su precio y la disponibilidad del inventario.</p></div><span class="step-arrow" aria-hidden="true">↓</span></article>
+                    <article class="flow-step"><span class="step-index">03</span><span class="step-icon">⇄</span><div><span class="step-service">PEDIDOS</span><h3>Se crea la orden</h3><p>Registra los artículos y coordina los siguientes pasos de la compra.</p></div><span class="step-arrow" aria-hidden="true">↓</span></article>
+                    <article class="flow-step"><span class="step-index">04</span><span class="step-icon">◇</span><div><span class="step-service">PAGOS</span><h3>Se procesa el cobro</h3><p>Intenta el pago y comunica su resultado para actualizar la orden.</p></div><span class="step-complete" aria-label="Flujo completado">✓</span></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section video-section" id="video">
+            <div class="page-width video-layout">
+                <div class="video-copy"><p class="eyebrow eyebrow-blue">06 / APRENDIZAJE AUDIOVISUAL</p><h2>Aprende con<br>este video.</h2><p>Repasa las ideas clave, observa cómo se comunican los servicios y conecta la arquitectura con ejemplos reales.</p><div class="video-duration"><span aria-hidden="true">▷</span> CONTENIDO COMPLEMENTARIO</div></div>
+                <div class="video-stage">
+                    <div class="video-placeholder" id="video-placeholder">
+                        <div class="video-placeholder-art" aria-hidden="true"><span class="play-halo"><span>▶</span></span><i class="video-node video-node-a"></i><i class="video-node video-node-b"></i><i class="video-node video-node-c"></i><i class="video-link video-link-a"></i><i class="video-link video-link-b"></i></div>
+                        <p>El contenido audiovisual estará disponible próximamente.</p><span>VIDEO · MICROservicios</span>
+                    </div>
+                    <video class="lesson-video" id="lesson-video" controls preload="metadata" playsinline aria-label="Lección en video sobre microservicios" hidden></video>
+                    <noscript><p>Próximamente: video introductorio sobre arquitectura de microservicios.</p></noscript>
+                </div>
+            </div>
+        </section>
+
+        <section class="section quiz-section" id="cuestionario">
+            <div class="page-width">
+                <div class="quiz-heading"><div><p class="eyebrow">07 / COMPRUEBA LO APRENDIDO</p><h2>Pon a prueba<br>tus conocimientos.</h2></div><div class="quiz-count"><strong id="quiz-count-value">10</strong><span>PREGUNTAS<br>DE OPCIÓN MÚLTIPLE</span></div></div>
+                <form id="quiz-form" class="quiz-form" novalidate>
+                    <div class="quiz-progress"><span id="progress-label">0 de 10 respondidas</span><div class="progress-track"><span id="progress-fill"></span></div></div>
+                    <div id="quiz-questions"></div>
+                    <div class="quiz-submit-row"><p id="quiz-message" class="quiz-message" role="status" aria-live="polite">Selecciona una respuesta en cada pregunta.</p><button class="button button-light" type="submit">Finalizar cuestionario <span aria-hidden="true">↗</span></button></div>
+                </form>
+                <section id="quiz-result" class="quiz-result" aria-live="polite" hidden></section>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer"><div class="page-width footer-inner"><a class="brand footer-brand" href="#inicio"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>arquitectura<span class="brand-light">.lab</span></span></a><p>Conceptos claros para sistemas bien diseñados.</p><a href="#inicio" class="back-top">VOLVER ARRIBA ↑</a></div></footer>
+</body>
+</html>
