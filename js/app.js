@@ -226,6 +226,66 @@ navigation.addEventListener("click", (event) => {
   }
 });
 
+const themeToggle = document.querySelector("#theme-toggle");
+const themeLabel = document.querySelector("#theme-label");
+const themeIcon = themeToggle.querySelector(".theme-icon");
+const themeStorageKey = "arquitectura-lab-theme";
+let savedTheme = "light";
+try {
+  savedTheme = localStorage.getItem(themeStorageKey) === "dark" ? "dark" : "light";
+} catch {
+  // El selector sigue funcionando aunque el navegador bloquee el almacenamiento.
+}
+
+function setTheme(theme) {
+  const isDark = theme === "dark";
+  document.documentElement.dataset.theme = isDark ? "dark" : "light";
+  themeLabel.textContent = isDark ? "Modo claro" : "Modo oscuro";
+  themeIcon.textContent = isDark ? "☀" : "◐";
+  themeToggle.setAttribute("aria-label", `Cambiar a ${isDark ? "modo claro" : "modo oscuro"}`);
+  try {
+    localStorage.setItem(themeStorageKey, theme);
+  } catch {
+    // La preferencia solo se conserva mientras la página permanezca abierta.
+  }
+}
+
+setTheme(savedTheme);
+themeToggle.addEventListener("click", () => {
+  setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
+  menuToggle.setAttribute("aria-expanded", "false");
+  menuToggle.setAttribute("aria-label", "Abrir menú");
+  navigation.classList.remove("is-open");
+});
+
+const heroTitle = document.querySelector(".hero h1");
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const titleWalker = document.createTreeWalker(heroTitle, NodeFilter.SHOW_TEXT);
+  const titleNodes = [];
+  while (titleWalker.nextNode()) titleNodes.push(titleWalker.currentNode);
+  const titleParts = titleNodes.map((node) => node.textContent);
+  titleNodes.forEach((node) => { node.textContent = ""; });
+  heroTitle.classList.add("is-typing");
+
+  let partIndex = 0;
+  let characterIndex = 0;
+  function typeTitleCharacter() {
+    if (partIndex === titleParts.length) {
+      window.setTimeout(() => heroTitle.classList.remove("is-typing"), 500);
+      return;
+    }
+    const part = titleParts[partIndex];
+    titleNodes[partIndex].textContent += part[characterIndex];
+    characterIndex += 1;
+    if (characterIndex === part.length) {
+      partIndex += 1;
+      characterIndex = 0;
+    }
+    window.setTimeout(typeTitleCharacter, 45);
+  }
+  typeTitleCharacter();
+}
+
 const videoSource = "";
 const lessonVideo = document.querySelector("#lesson-video");
 const videoPlaceholder = document.querySelector("#video-placeholder");

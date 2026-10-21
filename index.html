@@ -31,6 +31,9 @@
                 <a href="#balance">Ventajas y desventajas</a>
                 <a href="#video">Video</a>
                 <a class="nav-quiz" href="#cuestionario">Cuestionario <span aria-hidden="true">↗</span></a>
+                <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar a modo oscuro">
+                    <span class="theme-icon" aria-hidden="true">◐</span><span id="theme-label">Modo oscuro</span>
+                </button>
             </div>
         </nav>
     </header>
@@ -40,7 +43,7 @@
             <div class="hero-grid page-width">
                 <div class="hero-copy">
                     <p class="eyebrow"><span class="eyebrow-line"></span> FUNDAMENTOS DE ARQUITECTURA</p>
-                    <h1>Una aplicación.<br><span>Muchos servicios.</span></h1>
+                    <h1 aria-label="Una aplicación. Muchos servicios.">Una aplicación.<br><span>Muchos servicios.</span></h1>
                     <p class="hero-description">Descubre cómo los microservicios dividen sistemas complejos en piezas pequeñas, autónomas y coordinadas.</p>
                     <div class="hero-actions">
                         <a class="button button-primary" href="#conceptos">Comenzar a aprender <span aria-hidden="true">↓</span></a>
@@ -79,18 +82,21 @@
                         <span class="concept-index">A / 01</span><span class="concept-icon icon-blue" aria-hidden="true">⌂</span>
                         <h3>Arquitectura de software</h3>
                         <p>Es el plano que define cómo se organizan las partes de un sistema, qué responsabilidades tiene cada una y cómo colaboran.</p>
+                        <p class="concept-detail">También establece decisiones importantes: límites entre componentes, flujo de datos y criterios para evolucionar el producto.</p>
                         <div class="concept-example"><span class="example-label">PIÉNSALO COMO</span> El plano de una ciudad: barrios, calles y servicios con un propósito.</div>
                     </article>
                     <article class="concept-card">
                         <span class="concept-index">A / 02</span><span class="concept-icon icon-teal" aria-hidden="true">⤳</span>
                         <h3>Desacoplar</h3>
                         <p>Es reducir la dependencia directa entre componentes. Cada parte puede cambiar sin obligar a modificar todas las demás.</p>
+                        <p class="concept-detail">Los contratos explícitos, como una API, permiten colaborar sin conocer los detalles internos de otro componente.</p>
                         <div class="concept-example"><span class="example-label">EN LA PRÁCTICA</span> Cambiar el catálogo sin reconstruir el servicio de usuarios.</div>
                     </article>
                     <article class="concept-card">
                         <span class="concept-index">A / 03</span><span class="concept-icon icon-orange" aria-hidden="true">▧</span>
                         <h3>Microservicios</h3>
                         <p>Es un estilo de arquitectura que organiza una aplicación como un conjunto de servicios pequeños, especializados y desplegables por separado.</p>
+                        <p class="concept-detail">Cada servicio suele alinearse con una capacidad del negocio y es responsable de su lógica y sus datos.</p>
                         <div class="concept-example"><span class="example-label">SU PROPÓSITO</span> Evolucionar cada capacidad con autonomía y coordinación.</div>
                     </article>
                 </div>
