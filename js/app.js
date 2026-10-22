@@ -345,7 +345,7 @@ if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-mot
       }
     });
   }, { threshold: 0.12 });
-  document.querySelectorAll(".concept-card, .trait, .balance-panel, .flow-step, .video-stage").forEach((element) => {
+  document.querySelectorAll(".concept-card, .balance-panel, .flow-step, .video-stage").forEach((element) => {
     element.classList.add("reveal");
     revealObserver.observe(element);
   });

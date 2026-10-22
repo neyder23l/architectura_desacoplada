@@ -126,16 +126,6 @@
                     </div>
                     <div class="diagram-legend"><span><i class="legend-api"></i> Solicitud / respuesta</span><span><i class="legend-event"></i> Evento o mensaje</span><span class="legend-caption">Cada servicio puede tener su propio ciclo de vida.</span></div>
                 </div>
-                <p class="diagram-note"><strong>Sobre las bases de datos:</strong> una base independiente por servicio es una práctica habitual para mantener autonomía, pero no es una obligación universal. La decisión depende de las necesidades del sistema.</p>
-                <div class="traits-heading"><p class="eyebrow eyebrow-blue">LO QUE LOS DEFINE</p><h3>Seis ideas para reconocerlos</h3></div>
-                <div class="traits-grid">
-                    <article class="trait"><span>01</span><div><h4>Independencia</h4><p>Cada servicio concentra una capacidad y procura evitar dependencias internas rígidas.</p></div></article>
-                    <article class="trait"><span>02</span><div><h4>Despliegue propio</h4><p>Puede publicarse por separado si sus contratos siguen siendo compatibles.</p></div></article>
-                    <article class="trait"><span>03</span><div><h4>Escala individual</h4><p>Se asignan más recursos al servicio que realmente tiene mayor demanda.</p></div></article>
-                    <article class="trait"><span>04</span><div><h4>Comunicación explícita</h4><p>Colaboran mediante APIs o mensajes con formatos acordados.</p></div></article>
-                    <article class="trait"><span>05</span><div><h4>Flexibilidad tecnológica</h4><p>Un servicio puede usar la tecnología que mejor resuelva su tarea.</p></div></article>
-                    <article class="trait"><span>06</span><div><h4>Fallos contenidos</h4><p>Con aislamiento, límites y reintentos, un fallo puede afectar menos al conjunto.</p></div></article>
-                </div>
             </div>
         </section>
 
@@ -184,7 +174,7 @@
 
         <section class="section video-section" id="video">
             <div class="page-width video-layout">
-                <div class="video-copy"><p class="eyebrow eyebrow-blue">06 / APRENDIZAJE AUDIOVISUAL</p><h2>Aprende con<br>este video.</h2><p>Repasa las ideas clave, observa cómo se comunican los servicios y conecta la arquitectura con ejemplos reales.</p><div class="video-duration"><span aria-hidden="true">▷</span> CONTENIDO COMPLEMENTARIO</div></div>
+                <div class="video-copy"><p class="eyebrow eyebrow-blue">06 / APRENDIZAJE AUDIOVISUAL</p><h2>Microservicios<br>en acción.</h2><p>Este video complementa la guía con una explicación visual de la arquitectura y sus responsabilidades.</p><p>Observa cómo se conectan los servicios y cómo una aplicación puede coordinar tareas independientes. Después, vuelve al cuestionario para poner a prueba lo aprendido.</p><div class="video-duration"><span aria-hidden="true">▷</span> LECCIÓN COMPLEMENTARIA</div></div>
                 <div class="video-stage">
                     <div class="video-placeholder" id="video-placeholder">
                         <div class="video-placeholder-art" aria-hidden="true"><span class="play-halo"><span>▶</span></span><i class="video-node video-node-a"></i><i class="video-node video-node-b"></i><i class="video-node video-node-c"></i><i class="video-link video-link-a"></i><i class="video-link video-link-b"></i></div>
@@ -209,6 +199,18 @@
         </section>
     </main>
 
-    <footer class="site-footer"><div class="page-width footer-inner"><a class="brand footer-brand" href="#inicio"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>arquitectura<span class="brand-light">.lab</span></span></a><p>Conceptos claros para sistemas bien diseñados.</p><a href="#inicio" class="back-top">VOLVER ARRIBA ↑</a></div></footer>
+    <footer class="site-footer">
+        <div class="page-width footer-inner">
+            <a class="brand footer-brand" href="#inicio"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>arquitectura<span class="brand-light">.lab</span></span></a>
+            <p>Guía educativa sobre arquitectura de microservicios.</p>
+            <nav class="footer-navigation" aria-label="Navegación del pie">
+                <a href="#conceptos">Conceptos</a>
+                <a href="#funcionamiento">Funcionamiento</a>
+                <a href="#balance">Ventajas y retos</a>
+                <a href="#cuestionario">Cuestionario</a>
+            </nav>
+            <a href="#inicio" class="back-top">Volver arriba ↑</a>
+        </div>
+    </footer>
 </body>
 </html>
