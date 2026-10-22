@@ -29,6 +29,8 @@
                 <a href="#conceptos">Conceptos</a>
                 <a href="#funcionamiento">Funcionamiento</a>
                 <a href="#balance">Ventajas y desventajas</a>
+                <a href="#comparacion">Evolución</a>
+                <a href="#ejemplo">Ejemplo</a>
                 <a href="#video">Video</a>
                 <a class="nav-quiz" href="#cuestionario">Cuestionario <span aria-hidden="true">↗</span></a>
                 <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar a modo oscuro" title="Cambiar tema">
@@ -148,15 +150,41 @@
 
         <section class="section comparison-section" id="comparacion">
             <div class="page-width">
-                <div class="section-heading split-heading"><div><p class="eyebrow eyebrow-blue">04 / CÓMO EVOLUCIONAR</p><h2>Empieza simple.<br>Separa cuando haga falta.</h2></div><p class="heading-note">Un monolito bien organizado suele ser suficiente al inicio. Divide capacidades en microservicios cuando necesiten escalar, desplegarse o evolucionar por separado.</p></div>
-                <div class="comparison-wrap"><table class="comparison-table"><thead><tr><th scope="col">ASPECTO</th><th scope="col"><span class="table-monolith">▰</span> Monolítica</th><th scope="col"><span class="table-micro">◈</span> Microservicios</th></tr></thead><tbody>
-                    <tr><th scope="row">Estructura</th><td>Funcionalidades dentro de una aplicación.</td><td>Servicios separados por capacidad de negocio.</td></tr>
-                    <tr><th scope="row">Despliegue</th><td>Normalmente se publica la aplicación completa.</td><td>Un servicio puede desplegarse por separado.</td></tr>
-                    <tr><th scope="row">Escalabilidad</th><td>Se escala la aplicación como conjunto.</td><td>Se escala cada servicio según su demanda.</td></tr>
-                    <tr><th scope="row">Mantenimiento</th><td>Puede ser directo al inicio; crecer puede aumentar el acoplamiento.</td><td>Facilita separar responsabilidades, con coordinación adicional.</td></tr>
-                    <tr><th scope="row">Complejidad operativa</th><td>Menos piezas distribuidas que administrar.</td><td>Requiere monitoreo y operación distribuida.</td></tr>
-                </tbody></table></div>
-                <div class="decision-note"><span aria-hidden="true">✳</span><p><strong>Una regla útil:</strong> empezar con un monolito bien organizado suele ser razonable para productos pequeños. Separar servicios tiene sentido cuando hay necesidades reales de escala, autonomía o despliegue.</p></div>
+                <div class="section-heading split-heading comparison-intro">
+                    <div><p class="eyebrow eyebrow-blue">04 / CÓMO EVOLUCIONAR</p><h2>Empieza simple.<br>Separa cuando haga falta.</h2></div>
+                    <p class="heading-note">Un monolito bien organizado suele ser suficiente al inicio. Divide capacidades en microservicios cuando necesiten escalar, desplegarse o evolucionar por separado.</p>
+                </div>
+                <div class="evolution-heading"><h3>La ruta típica</h3></div>
+                <ol class="evolution-steps" aria-label="Etapas de evolución de una arquitectura">
+                    <li class="evolution-step step-monolith"><span class="step-kicker">PASO 1</span><span class="step-tag">Empieza aquí</span><h4>Monolito</h4><p>Una sola aplicación, un solo despliegue. Ideal para validar el producto rápido.</p><small>Cuándo: equipo pequeño, producto nuevo.</small></li>
+                    <li class="evolution-step step-modular"><span class="step-kicker">PASO 2</span><span class="step-tag">Ordena</span><h4>Monolito modular</h4><p>Módulos con límites claros dentro de la misma aplicación. Prepara el terreno para separar.</p><small>Cuándo: el código crece y aparecen áreas de negocio.</small></li>
+                    <li class="evolution-step step-services"><span class="step-kicker">PASO 3</span><span class="step-tag">Escala</span><h4>Microservicios</h4><p>Se extraen solo los módulos que lo necesitan, uno a la vez.</p><small>Cuándo: escala, equipos o despliegues independientes.</small></li>
+                </ol>
+                <div class="comparison-toolbar">
+                    <h3>Comparación lado a lado</h3>
+                    <div class="comparison-controls" role="group" aria-label="Vista de la comparación">
+                        <button type="button" data-comparison-view="both" aria-pressed="true">Ambas</button>
+                        <button type="button" data-comparison-view="monolith" aria-pressed="false">Monolito</button>
+                        <button type="button" data-comparison-view="microservices" aria-pressed="false">Microservicios</button>
+                    </div>
+                </div>
+                <div class="comparison-wrap">
+                    <table class="comparison-table" id="comparison-table" data-view="both">
+                        <thead><tr><th scope="col">ASPECTO</th><th scope="col" class="monolith-column"><span class="table-monolith">▰</span><strong>Monolítica</strong><small>Todo en una aplicación</small></th><th scope="col" class="microservices-column"><span class="table-micro">◈</span><strong>Microservicios</strong><small>Servicios independientes</small></th></tr></thead>
+                        <tbody>
+                            <tr><th scope="row">Estructura</th><td class="monolith-column"><strong>Todo junto</strong><span>Funcionalidades dentro de una aplicación.</span></td><td class="microservices-column"><strong>Por capacidad</strong><span>Servicios separados por dominio de negocio.</span></td></tr>
+                            <tr><th scope="row">Despliegue</th><td class="monolith-column"><strong>Completo</strong><span>Se publica la aplicación entera en cada cambio.</span></td><td class="microservices-column"><strong>Independiente</strong><span>Cada servicio se despliega por separado.</span></td></tr>
+                            <tr><th scope="row">Escalabilidad</th><td class="monolith-column"><strong>En bloque</strong><span>Se escala la aplicación como conjunto.</span><span class="comparison-indicator" aria-label="Escalado conjunto">•••</span></td><td class="microservices-column"><strong>Selectiva</strong><span>Se escala cada servicio según su demanda.</span><span class="comparison-indicator" aria-label="Escalado selectivo">•••</span></td></tr>
+                            <tr><th scope="row">Mantenimiento</th><td class="monolith-column"><strong>Simple al inicio</strong><span>Al crecer puede aumentar el acoplamiento.</span></td><td class="microservices-column"><strong>Responsabilidades claras</strong><span>Requiere coordinación entre equipos.</span></td></tr>
+                            <tr><th scope="row">Complejidad operativa</th><td class="monolith-column"><strong>Baja</strong><span>Menos piezas distribuidas que administrar.</span></td><td class="microservices-column"><strong>Alta</strong><span>Requiere monitoreo y operación distribuida.</span></td></tr>
+                            <tr class="ideal-row"><th scope="row">Ideal para</th><td class="monolith-column"><span class="comparison-tag">MVP</span><span class="comparison-tag">Equipo pequeño</span><span class="comparison-tag">Dominio simple</span></td><td class="microservices-column"><span class="comparison-tag">Alta carga</span><span class="comparison-tag">Varios equipos</span><span class="comparison-tag">Despliegues frecuentes</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="decision-grid">
+                    <article class="decision-card rule-card"><p class="decision-kicker">✳ REGLA ÚTIL</p><h4>Empezar con un monolito bien organizado es razonable para productos pequeños.</h4><p>Separar servicios tiene sentido cuando hay necesidades reales de escala, autonomía o despliegue.</p></article>
+                    <article class="decision-card signals-card"><p class="decision-kicker">SEÑALES DE QUE ES HORA DE SEPARAR</p><ul><li>Una parte del sistema recibe mucha más carga que el resto.</li><li>Varios equipos se bloquean al desplegar la misma aplicación.</li><li>Un módulo cambia mucho más seguido que los demás.</li><li>Un fallo en una función tumba toda la aplicación.</li></ul></article>
+                </div>
             </div>
         </section>
 

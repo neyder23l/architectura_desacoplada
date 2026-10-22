@@ -254,6 +254,16 @@ navigation.addEventListener("click", (event) => {
   }
 });
 
+const comparisonTable = document.querySelector("#comparison-table");
+document.querySelectorAll("[data-comparison-view]").forEach((button) => {
+  button.addEventListener("click", () => {
+    comparisonTable.dataset.view = button.dataset.comparisonView;
+    document.querySelectorAll("[data-comparison-view]").forEach((control) => {
+      control.setAttribute("aria-pressed", String(control === button));
+    });
+  });
+});
+
 const themeToggle = document.querySelector("#theme-toggle");
 const themeIcon = themeToggle.querySelector(".theme-icon");
 const browserThemeColor = document.querySelector('meta[name="theme-color"]');
