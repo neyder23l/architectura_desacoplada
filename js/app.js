@@ -125,11 +125,14 @@ function renderQuestions() {
       <legend class="question-title"><span class="question-number">${String(questionIndex + 1).padStart(2, "0")}</span><span>${item.question}</span></legend>
       <div class="answer-list">
         ${item.options.map((option, optionIndex) => `
-          <label class="answer-option">
-            <input type="radio" name="question-${questionIndex}" value="${optionIndex}" aria-label="${String.fromCharCode(65 + optionIndex)}: ${option}">
-            <span class="answer-letter" aria-hidden="true">${String.fromCharCode(65 + optionIndex)}</span>
-            <span>${option}</span>
-          </label>
+          <div class="answer-choice">
+            <label class="answer-option">
+              <input type="radio" name="question-${questionIndex}" value="${optionIndex}" aria-label="${String.fromCharCode(65 + optionIndex)}: ${option}">
+              <span class="answer-letter" aria-hidden="true">${String.fromCharCode(65 + optionIndex)}</span>
+              <span>${option}</span>
+            </label>
+            <p class="answer-feedback" hidden></p>
+          </div>
         `).join("")}
       </div>
     </fieldset>
@@ -145,6 +148,25 @@ function updateProgress() {
 }
 
 function showResults(answers) {
+  questions.forEach((item, questionIndex) => {
+    const choices = quizForm.querySelectorAll(`#question-${questionIndex} .answer-choice`);
+    choices.forEach((choice, optionIndex) => {
+      const label = choice.querySelector(".answer-option");
+      const feedback = choice.querySelector(".answer-feedback");
+      if (optionIndex === item.answer) {
+        const answeredCorrectly = answers[questionIndex] === item.answer;
+        label.classList.add(answeredCorrectly ? "answer-correct" : "answer-reference");
+        feedback.classList.add(answeredCorrectly ? "is-correct" : "is-correction");
+        feedback.textContent = `${answeredCorrectly ? "Correcta." : "Respuesta correcta."} ${item.explanation}`;
+        feedback.hidden = false;
+      } else if (optionIndex === answers[questionIndex]) {
+        label.classList.add("answer-incorrect");
+      }
+    });
+    quizForm.querySelector(`#question-${questionIndex}`).disabled = true;
+  });
+  quizForm.dataset.completed = "true";
+
   const correctCount = answers.reduce((total, answer, index) => total + (answer === questions[index].answer ? 1 : 0), 0);
   const incorrectCount = questions.length - correctCount;
   const percentage = Math.round((correctCount / questions.length) * 100);
@@ -167,7 +189,6 @@ function showResults(answers) {
       <h4>${String(index + 1).padStart(2, "0")}. ${item.question}</h4>
       <p><strong>${correct ? "Correcta" : "Tu respuesta:"}</strong> ${item.options[answers[index]]}</p>
       ${correct ? "" : `<p><strong>Respuesta correcta:</strong> ${item.options[item.answer]}</p>`}
-      <p class="explanation">${item.explanation}</p>
     </article>`;
   }).join("");
 
@@ -180,14 +201,21 @@ function showResults(answers) {
     <button class="retry-button" type="button" id="retry-quiz">Volver a intentarlo ↻</button>
   `;
   resultContainer.hidden = false;
-  quizForm.hidden = true;
   resultContainer.scrollIntoView({ behavior: "smooth", block: "start" });
   document.querySelector("#retry-quiz").addEventListener("click", resetQuiz);
 }
 
 function resetQuiz() {
   quizForm.reset();
-  quizForm.hidden = false;
+  quizForm.querySelectorAll("fieldset").forEach((fieldset) => { fieldset.disabled = false; });
+  quizForm.querySelectorAll(".answer-choice").forEach((choice) => {
+    choice.querySelector(".answer-option").classList.remove("answer-correct", "answer-reference", "answer-incorrect");
+    const feedback = choice.querySelector(".answer-feedback");
+    feedback.classList.remove("is-correct", "is-correction");
+    feedback.textContent = "";
+    feedback.hidden = true;
+  });
+  delete quizForm.dataset.completed;
   resultContainer.hidden = true;
   resultContainer.innerHTML = "";
   updateProgress();
@@ -228,27 +256,38 @@ navigation.addEventListener("click", (event) => {
 
 const themeToggle = document.querySelector("#theme-toggle");
 const themeIcon = themeToggle.querySelector(".theme-icon");
+const browserThemeColor = document.querySelector('meta[name="theme-color"]');
 const themeStorageKey = "arquitectura-lab-theme";
-let savedTheme = "light";
+const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+let savedTheme = "";
 try {
-  savedTheme = localStorage.getItem(themeStorageKey) === "dark" ? "dark" : "light";
+  savedTheme = localStorage.getItem(themeStorageKey) || "";
 } catch {
   // El selector sigue funcionando aunque el navegador bloquee el almacenamiento.
 }
+let userHasChosenTheme = savedTheme === "light" || savedTheme === "dark";
 
-function setTheme(theme) {
+function setTheme(theme, remember = true) {
   const isDark = theme === "dark";
   document.documentElement.dataset.theme = isDark ? "dark" : "light";
   themeIcon.textContent = isDark ? "☀" : "☾";
+  browserThemeColor.content = isDark ? "#1E1B4B" : "#6D28D9";
   themeToggle.setAttribute("aria-label", `Cambiar a ${isDark ? "modo claro" : "modo oscuro"}`);
-  try {
-    localStorage.setItem(themeStorageKey, theme);
-  } catch {
-    // La preferencia solo se conserva mientras la página permanezca abierta.
+  themeToggle.title = `Cambiar a ${isDark ? "modo claro" : "modo oscuro"}`;
+  if (remember) {
+    userHasChosenTheme = true;
+    try {
+      localStorage.setItem(themeStorageKey, theme);
+    } catch {
+      // La preferencia solo se conserva mientras la página permanezca abierta.
+    }
   }
 }
 
-setTheme(savedTheme);
+setTheme(savedTheme || (systemTheme.matches ? "dark" : "light"), false);
+systemTheme.addEventListener("change", (event) => {
+  if (!userHasChosenTheme) setTheme(event.matches ? "dark" : "light", false);
+});
 themeToggle.addEventListener("click", () => {
   setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
   menuToggle.setAttribute("aria-expanded", "false");
@@ -284,7 +323,7 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   typeTitleCharacter();
 }
 
-const videoSource = "";
+const videoSource = "video/video1.mp4";
 const lessonVideo = document.querySelector("#lesson-video");
 const videoPlaceholder = document.querySelector("#video-placeholder");
 if (videoSource) {
