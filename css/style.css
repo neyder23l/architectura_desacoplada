@@ -80,7 +80,7 @@ h1, h2 { font-family: var(--font-display); letter-spacing: 0; }
 .concept-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
 .concept-card { min-height: 294px; padding: 23px 24px 20px; border: 1px solid var(--border); border-radius: 5px; background: var(--surface); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }.concept-card:hover { transform: translateY(-4px); border-color: var(--border); box-shadow: 0 14px 32px color-mix(in srgb, var(--text) 7%, transparent); }.concept-featured { background: var(--tag-bg); border-color: var(--border); }
 .concept-index { display: inline-block; color: var(--text-2); font-size: 9px; font-weight: 700; }.concept-icon { float: right; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 6px; font-size: 19px; }.icon-blue { background: var(--tag-bg); color: var(--tag-text); }.icon-teal { background: var(--tag-teal-bg); color: var(--tag-teal-text); }.icon-orange { background: var(--tag-rose-bg); color: var(--tag-rose-text); }
-.concept-card h3 { margin: 22px 0 10px; color: var(--text); font: 700 17px var(--font-display); }.concept-card > p { min-height: 76px; margin: 0; color: var(--text-2); font-size: 12px; line-height: 1.8; }.concept-example { margin-top: 17px; padding-top: 14px; border-top: 1px solid var(--border); color: var(--text-2); font-size: 10px; line-height: 1.6; }.example-label { display: block; margin-bottom: 5px; color: var(--tag-text); font-size: 8px; font-weight: 700; }
+.concept-card h3 { margin: 22px 0 10px; color: var(--text); font: 700 22px var(--font-display); }.concept-card > p { min-height: 76px; margin: 0; color: var(--text-2); font-size: 17px; line-height: 1.7; }.concept-example { margin-top: 17px; padding-top: 14px; border-top: 1px solid var(--border); color: var(--text-2); font-size: 17px; line-height: 1.6; }.example-label { display: block; margin-bottom: 5px; color: var(--tag-text); font-size: 8px; font-weight: 700; }
 .analogy-strip { display: flex; gap: 16px; align-items: center; margin-top: 20px; padding: 16px 20px; border-left: 3px solid var(--tag-teal-text); background: var(--tag-teal-bg); }.analogy-symbol { color: var(--tag-teal-text); font-size: 19px; }.analogy-strip p { margin: 0; color: var(--text-2); font-size: 11px; line-height: 1.7; }.analogy-strip strong { color: var(--text); }
 
 .architecture-section { background: var(--surface); }.diagram-frame { border: 1px solid var(--border); border-radius: 6px; overflow: hidden; background: var(--bg); box-shadow: 0 14px 35px color-mix(in srgb, var(--text) 4%, transparent); }.diagram-toolbar { height: 45px; padding: 0 19px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); color: var(--text-2); font-size: 8px; font-weight: 700; }.diagram-toolbar > div { color: var(--text-2); }.diagram-status { display: inline-block; width: 6px; height: 6px; margin-right: 7px; border-radius: 50%; background: var(--tag-teal-text); }
@@ -128,8 +128,8 @@ html { font-size: 16px; }
 body { font-size: 16px; }
 .nav-links { font-size: 14px; }
 .eyebrow { font-size: 12px; }
-.concept-card h3 { font-size: 19px; }
-.concept-example { font-size: 13px; }
+.concept-card h3 { font-size: 22px; }
+.concept-example { font-size: 17px; }
 .question-title { font-size: 16px; }
 .answer-option { font-size: 14px; }
 .quiz-message { font-size: 13px; }
@@ -149,7 +149,7 @@ body { font-size: 16px; }
 .balance-panel li > span { display: none; }
 .purchase-flow::before { display: none; }
 .flow-step { grid-template-columns: 43px 1fr 20px; }
-.concept-detail { margin-top: 12px; color: var(--text-2); line-height: 1.7; }
+.concept-detail { margin-top: 12px; color: var(--text-2); font-size: 17px; line-height: 1.7; }
 .theme-toggle { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; min-height: 42px; padding: 0; border: 1px solid var(--border); border-radius: 4px; background: var(--surface); color: var(--text); cursor: pointer; }
 .theme-toggle:hover { border-color: var(--accent); }
 .theme-icon { font-size: 21px; line-height: 1; }
