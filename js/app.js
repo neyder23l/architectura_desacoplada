@@ -227,7 +227,6 @@ navigation.addEventListener("click", (event) => {
 });
 
 const themeToggle = document.querySelector("#theme-toggle");
-const themeLabel = document.querySelector("#theme-label");
 const themeIcon = themeToggle.querySelector(".theme-icon");
 const themeStorageKey = "arquitectura-lab-theme";
 let savedTheme = "light";
@@ -240,8 +239,7 @@ try {
 function setTheme(theme) {
   const isDark = theme === "dark";
   document.documentElement.dataset.theme = isDark ? "dark" : "light";
-  themeLabel.textContent = isDark ? "Modo claro" : "Modo oscuro";
-  themeIcon.textContent = isDark ? "☀" : "◐";
+  themeIcon.textContent = isDark ? "☀" : "☾";
   themeToggle.setAttribute("aria-label", `Cambiar a ${isDark ? "modo claro" : "modo oscuro"}`);
   try {
     localStorage.setItem(themeStorageKey, theme);
